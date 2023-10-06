@@ -10,6 +10,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <vector>
 #include "Person.h"
 using namespace std;
 
