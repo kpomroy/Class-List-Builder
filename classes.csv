@@ -1,8 +1,8 @@
-grade,teacher
-kindergarten,Smith
-kindergarten,Williams
-first,Brown
-first,Jones
+firstName,lastName,sex,grade,department
+Stan,Smith,m,0,Math
+0,Williams
+1,Brown
+1,Jones
 second,Garcia
 second,Miller
 third,Davis
