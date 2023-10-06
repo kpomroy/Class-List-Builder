@@ -16,9 +16,7 @@ enum Grade {
     fourth,
     fifth};
 
-
-
-class Student : private Person{
+class Student : public Person{
     /*
      * This class represents a student to be assigned to a class based on their grade level and other attributes
      * including behavioral and relational issues with other students.
@@ -28,20 +26,21 @@ class Student : private Person{
 private:
     // Fields
     Grade grade;
-
+    float gpa;
 
 
 public:
     // Constructors
     Student();
-    Student(string firstName, string lastName, Sex sex, Grade grade);
+    Student(string firstName, string lastName, Sex sex, Grade grade, float gpa);
 
     // Getters
     Grade getGrade() const;
-
+    float getGPA() const;
 
     // Setters
     void setGrade(Grade grade);
+    void setGPA(float gpa);
 };
 
 /*

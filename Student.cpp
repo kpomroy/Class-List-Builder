@@ -1,17 +1,23 @@
 #include "Student.h"
 
 // Constructors
-Student::Student(string firstName, string lastName, Sex sex, Grade grade) : Person(firstName, lastName, sex), grade(grade){
+Student::Student(string firstName, string lastName, Sex sex, Grade grade, float gpa) : Person(firstName, lastName, sex), grade(grade), gpa(gpa){
 }
 
 // Getters
 Grade Student::getGrade() const {
     return grade;
 }
+double Student::getGPA() const {
+    return gpa;
+}
 
 // Setters
 void Student::setGrade(Grade grade) {
     this->grade = grade;
+}
+void Student::setGPA(float gpa) {
+    this->gpa = gpa;
 }
 
 
@@ -38,6 +44,8 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
     Grade grade;
     string sexString;
     Sex sex;
+    string gpaString;
+    float gpa;
     char comma;
 
     //While the file is still in a good state to be read from
@@ -73,8 +81,12 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
             sex = female;
         }
 
+        //gpa
+        getline(inFile, gpaString, ',');
+
+
         //Create a class object and add it to the vector
-        students.push_back(Student(firstName, lastName, sex, grade));
+        students.push_back(Student(firstName, lastName, sex, grade, gpa));
     }
 
     //close the file
