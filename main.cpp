@@ -153,6 +153,7 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     outFile.open(outFileName);
     outFile << "GRADE: " << gradeToString(grade) << endl;
     outFile << "\n" << endl;
+    // TODO: read from a vector of classes to determine which class is which
     outFile << "CLASS 1:" << endl;
     int maleCount = 0;
     int femaleCount = 0;
