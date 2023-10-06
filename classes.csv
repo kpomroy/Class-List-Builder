@@ -1,13 +1,13 @@
 firstName,lastName,sex,grade,department
 Stan,Smith,m,0,Math
-0,Williams
-1,Brown
-1,Jones
-second,Garcia
-second,Miller
-third,Davis
-third,Rodriguez
-fourth,Hernandez
-fourth,Lopez
-fifth,Wilson
-fifth,Anderson
+John,Williams,m,0, English
+Melissa,Brown,w,1,Science
+Andy,Jones,m,1,English
+Paul,Garcia,m,2,Math
+Mike,Miller,m,2,Science
+Maya,Davis,w,3,Arts
+Jessica,Rodriguez,w,3,Athletics
+Anthony,Hernandez,m,4,Athletics
+Amtonio,Lopez,m,4,Arts
+Paula,Wilson,w,5,Math
+Kayla,Anderson,w,5,English
