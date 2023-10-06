@@ -83,6 +83,7 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
 
         //gpa
         getline(inFile, gpaString, ',');
+        gpa = stof(gpaString);
 
 
         //Create a class object and add it to the vector
