@@ -31,7 +31,6 @@ private:
 
 public:
     // Constructors
-    Student();
     Student(string firstName, string lastName, Sex sex, Grade grade, float gpa);
 
     // Getters
