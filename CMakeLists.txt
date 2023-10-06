@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(M1OEP main.cpp
         Teacher.h
         Teacher.cpp
-        Person.cpp)
+        Person.cpp
+        Class.h
+        Class.cpp)
