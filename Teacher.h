@@ -45,6 +45,7 @@ private:
 
 public:
     // Constructors
+    Teacher();
     Teacher(string firstName, string lastName, Sex sex, Grade grade, Department dept);
 
     // Getters
