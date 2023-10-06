@@ -60,7 +60,7 @@ bool getClassDataFromFile(string filename, vector<Class>& classes) {
     // Declare variables to be read in from csv
     string gradeString;
     Grade grade;
-    string teacher;
+    string teacherString;
     char comma;
 
     //While the file is still in a good state to be read from
@@ -86,6 +86,8 @@ bool getClassDataFromFile(string filename, vector<Class>& classes) {
 
         // Teacher
         getline(inFile, teacher, '\n');
+
+
 
         //Create a class object and add it to the vector
         classes.push_back(Class(teacher, grade));

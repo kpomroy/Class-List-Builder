@@ -8,7 +8,7 @@ Student::Student(string firstName, string lastName, Sex sex, Grade grade, float 
 Grade Student::getGrade() const {
     return grade;
 }
-double Student::getGPA() const {
+float Student::getGPA() const {
     return gpa;
 }
 
