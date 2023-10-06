@@ -10,7 +10,7 @@ class Relationship {
 private:
     Student student1;
     Student student2;
-
+    string reason;
 public:
     // constructor
     Relationship(Student s1, Student s2);
@@ -18,9 +18,11 @@ public:
     // getters and setters
     Student getStudent1();
     Student getStudent2();
+    string getReason();
 
-    // Overloaded operators
-    friend ostream& operator << (ostream& os, const Relationship& r);
+    void setReason(string reason);
+
+    virtual string print() = 0;
 };
 
 
