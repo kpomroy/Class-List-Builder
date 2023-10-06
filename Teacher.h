@@ -45,7 +45,6 @@ private:
 
 public:
     // Constructors
-    Teacher();
     Teacher(string firstName, string lastName, Sex sex, Grade grade, Department dept);
 
     // Getters
@@ -59,7 +58,13 @@ public:
 };
 
 
-
+/*
+ * Function to read in Teacher data from a csv file and save teachers as teacher objects in a vector
+ * Takes: filename - the csv filename
+ *        teachers - the vector of teachers to save the information to
+ * Returns: boolean value true if successful else false
+ */
+bool getTeacherDataFromFile(string filename, vector<Teacher>& teachers);
 
 
 

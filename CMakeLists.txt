@@ -4,4 +4,6 @@ project(M1OEP)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(M1OEP main.cpp
-        Teacher.h)
+        Teacher.h
+        Teacher.cpp
+        Person.cpp)
