@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "Person.h"
 using namespace std;
 
 enum Grade {
@@ -15,9 +16,9 @@ enum Grade {
     fourth,
     fifth};
 
-enum Sex {male, female};
 
-class Student {
+
+class Student : private Person{
     /*
      * This class represents a student to be assigned to a class based on their grade level and other attributes
      * including behavioral and relational issues with other students.
@@ -26,33 +27,21 @@ class Student {
 
 private:
     // Fields
-    string firstName;
-    string lastName;
     Grade grade;
-    Sex sex;
+
 
 
 public:
     // Constructors
     Student();
-    Student(string firstName, string lastName, Grade grade, Sex sex);
+    Student(string firstName, string lastName, Sex sex, Grade grade);
 
     // Getters
-    string getFirstName() const;
-    string getLastName() const;
     Grade getGrade() const;
-    Sex getSex() const;
+
 
     // Setters
-    void setFirstName(string firstName);
-    void setLastName(string lastName);
     void setGrade(Grade grade);
-    void setSex(Sex sex);
-
-    // Overloaded operators
-    friend ostream& operator << (ostream& os, const Student& s);
-
-    bool operator == (const Student &s);
 };
 
 /*

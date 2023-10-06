@@ -1,63 +1,20 @@
 #include "Student.h"
 
 // Constructors
-Student::Student() {
-}
-
-Student::Student(string firstName, string lastName, Grade grade, Sex sex) {
-    this->firstName = firstName;
-    this->lastName = lastName;
-    this->grade = grade;
-    this->sex = sex;
+Student::Student(string firstName, string lastName, Sex sex, Grade grade) : Person(firstName, lastName, sex), grade(grade){
 }
 
 // Getters
-string Student::getFirstName() const {
-    return firstName;
-}
-
-string Student::getLastName() const {
-    return lastName;
-}
-
 Grade Student::getGrade() const {
     return grade;
 }
 
-Sex Student::getSex() const {
-    return sex;
-}
-
 // Setters
-void Student::setFirstName(string firstName) {
-    this->firstName = firstName;
-}
-
-void Student::setLastName(string lastName) {
-    this->lastName = lastName;
-}
-
 void Student::setGrade(Grade grade) {
     this->grade = grade;
 }
 
-void Student::setSex(Sex sex) {
-    this->sex = sex;
-}
 
-// Overloaded operators
-ostream& operator << (ostream& os, const Student& s) {
-    os << s.getFirstName() << " " << s.getLastName();
-    return os;
-}
-
-bool Student::operator == (const Student &s) {
-    if (firstName == s.firstName && lastName == s.lastName) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 bool getStudentDataFromFile(string filename, vector<Student>& students) {
     //create a file handler object
@@ -117,7 +74,7 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
         }
 
         //Create a class object and add it to the vector
-        students.push_back(Student(firstName, lastName, grade, sex));
+        students.push_back(Student(firstName, lastName, sex, grade));
     }
 
     //close the file
