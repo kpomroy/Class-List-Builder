@@ -151,14 +151,24 @@ void assignClasses(vector<Student> students, vector<Student> &class1, vector<Stu
  *        clas1/class2 - vectors of students that have been split into two classes
  *        outFileName - string representing the name of the file to print results to
  */
-void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2, string outFileName) {
+void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2, vector<Class> &allClasses, string outFileName) {
 
     ofstream outFile;
     outFile.open(outFileName);
     outFile << "GRADE: " << gradeToString(grade) << endl;
     outFile << "\n" << endl;
     // TODO: read from a vector of classes to determine which class is which
-    outFile << "CLASS 1:" << endl;
+    vector<Class> applicableClasses;
+
+    for (Class c : allClasses) {
+        if (c.getGrade() == grade) {
+            applicableClasses.push_back(c);
+        }
+    }
+
+    Teacher classOneTeacher = applicableClasses[0].getTeacher();
+    Teacher classTwoTeacher = applicableClasses[1].getTeacher();
+    outFile << "TEACHER: " << classOneTeacher << endl;
     int maleCount = 0;
     int femaleCount = 0;
     for (Student s : class1) {
@@ -176,7 +186,7 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     outFile << "\n";
     maleCount = 0;
     femaleCount = 0;
-    outFile << "CLASS 2:" << endl;
+    outFile << "TEACHER: " << classTwoTeacher << endl;
     for (Student s : class2) {
         outFile << s << endl;
         if (s.getSex() == 0) {
