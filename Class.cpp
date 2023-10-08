@@ -1,5 +1,6 @@
 #include "Class.h"
 
+
 // Constructors
 Class::Class() {};
 Class::Class(Teacher teacher, Grade grade) {
@@ -60,6 +61,7 @@ bool getClassDataFromFile(string filename, vector<Class>& classes) {
     // Declare variables to be read in from csv
     string gradeString;
     Grade grade;
+    Teacher teacher;
     string teacherString;
     char comma;
 
