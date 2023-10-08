@@ -11,4 +11,5 @@ add_executable(M2OEP main.cpp
         Student.h
         Student.cpp
         Class.h
-        Class.cpp)
+        Class.cpp
+        testing.cpp)
