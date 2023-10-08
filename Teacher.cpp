@@ -4,6 +4,9 @@
 #include "Teacher.h"
 
 // Constructors
+Teacher::Teacher() : Person() {
+}
+
 Teacher::Teacher(string firstName, string lastName, Sex sex, Department dept) : Person(firstName, lastName, sex), dept(dept){
 }
 
@@ -11,7 +14,6 @@ Teacher::Teacher(string firstName, string lastName, Sex sex, Department dept) : 
 Department Teacher::getDept() const {
     return dept;
 }
-
 
 // Setters
     void Teacher::setDept(Department dept) {

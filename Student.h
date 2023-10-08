@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <vector>
 #include "Person.h"
 using namespace std;
 
@@ -31,6 +32,7 @@ private:
 
 public:
     // Constructors
+    Student();
     Student(string firstName, string lastName, Sex sex, Grade grade, float gpa);
 
     // Getters

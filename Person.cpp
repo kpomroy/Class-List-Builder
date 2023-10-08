@@ -1,5 +1,7 @@
 #include "Person.h"
 
+Person::Person() {}
+
 Person::Person(string firstName, string lastName, Sex sex) {
     this->firstName = firstName;
     this->lastName = lastName;

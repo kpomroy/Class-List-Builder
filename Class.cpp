@@ -1,7 +1,9 @@
 #include "Class.h"
 
 // Constructors
-Class::Class() {};
+Class::Class() {
+}
+
 Class::Class(Teacher teacher, Grade grade) {
     this->teacher = teacher;
     this->grade = grade;
@@ -39,9 +41,7 @@ bool Class::operator == (const Class &c) {
     }
 }
 
-// Function to read classes from csv
-bool getClassDataFromFile(string filename, vector<Class>& classes) {
-
+bool getClassDataFromFile(std::string filename, vector<Class> &classes) {
     //create a file handler object
     ifstream inFile;
     //open the file
@@ -56,43 +56,72 @@ bool getClassDataFromFile(string filename, vector<Class>& classes) {
     } else {
         return false;
     }
-
     // Declare variables to be read in from csv
-    string gradeString;
+    string firstName;
+    string lastName;
+    string gradeNum;
+    string deptString;
     Grade grade;
-    string teacherString;
+    string sexString;
+    Sex sex;
+    Department dept;
     char comma;
 
     //While the file is still in a good state to be read from
     //and we're not at the end of the file (check for end of file character)
     //inFile.peek() looks at next character
     while (inFile && inFile.peek() != EOF) {
-        // Grade
-        getline(inFile, gradeString, ',');
+        // first name
+        getline(inFile, firstName, ',');
+        // last name
+        getline(inFile, lastName, ',');
+        // grade
+        getline(inFile, gradeNum, ',');
         // convert to Grade object
-        if (gradeString == "kindergarten") {
+        if (gradeNum == "0") {
             grade = kindergarten;
-        } else if (gradeString == "first") {
+        } else if (gradeNum == "1") {
             grade = first;
-        } else if (gradeString == "second") {
+        } else if (gradeNum == "2") {
             grade = second;
-        } else if (gradeString == "third") {
+        } else if (gradeNum == "3") {
             grade = third;
-        } else if (gradeString == "fourth") {
+        } else if (gradeNum == "4") {
             grade = fourth;
         } else {
             grade = fifth;
         }
 
-        // Teacher
-        getline(inFile, teacher, '\n');
+        // sex
+        getline(inFile, sexString, '\n');
+        if (sexString == "m") {
+            sex = male;
+        } else {
+            sex = female;
+        }
 
+        //Departement
+        getline(inFile, deptString, '\n');
+        if(deptString == "Math"){
+            dept = Math;
+        }
+        if(deptString == "Science"){
+            dept = Science;
+        }
+        if(deptString == "English"){
+            dept = English;
+        }
+        if(deptString == "Athletics"){
+            dept = Athletics;
+        }
+        if(deptString == "Arts"){
+            dept = Arts;
+        }
 
-
+        Teacher t = Teacher(firstName, lastName, sex, dept);
         //Create a class object and add it to the vector
-        classes.push_back(Class(teacher, grade));
+        classes.push_back(Class(t, grade));
     }
-
     //close the file
     inFile.close();
     return true;

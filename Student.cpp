@@ -1,6 +1,9 @@
 #include "Student.h"
 
 // Constructors
+Student::Student() : Person() {
+}
+
 Student::Student(string firstName, string lastName, Sex sex, Grade grade, float gpa) : Person(firstName, lastName, sex), grade(grade), gpa(gpa){
 }
 
