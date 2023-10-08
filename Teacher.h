@@ -14,14 +14,6 @@
 #include "Person.h"
 using namespace std;
 
-enum Grade {
-    kindergarten,
-    first,
-    second,
-    third,
-    fourth,
-    fifth};
-
 enum Department{
     Math,
     Science,
@@ -39,7 +31,6 @@ class Teacher : public Person{
 
 private:
     // Fields
-    Grade grade;
     Department dept;
 
 
@@ -47,26 +38,15 @@ private:
 public:
     // Constructors
     Teacher();
-    Teacher(string firstName, string lastName, Sex sex, Grade grade, Department dept);
+    Teacher(string firstName, string lastName, Sex sex, Department dept);
 
     // Getters
-    Grade getGrade() const;
     Department getDept() const;
 
 
     // Setters
-    void setGrade(Grade grade);
     void setDept(Department dept);
 };
-
-
-/*
- * Function to read in Teacher data from a csv file and save teachers as teacher objects in a vector
- * Takes: filename - the csv filename
- *        teachers - the vector of teachers to save the information to
- * Returns: boolean value true if successful else false
- */
-bool getTeacherDataFromFile(string filename, vector<Teacher>& teachers);
 
 
 

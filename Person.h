@@ -1,7 +1,11 @@
 #ifndef M2OEP_KPOMROY_SALAMUTU_PERSON_H
 #define M2OEP_KPOMROY_SALAMUTU_PERSON_H
 
+#include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
+#include <vector>
 using namespace std;
 
 enum Sex {male, female};
@@ -13,7 +17,8 @@ private:
     Sex sex;
 
 public:
-    // constructor
+    // constructors
+    Person();
     Person(string firstName, string lastName, Sex sex);
 
     // getters and setters

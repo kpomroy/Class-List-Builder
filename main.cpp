@@ -1,9 +1,14 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
+#include <list>
 #include <vector>
 #include "Student.h"
 #include "Student.cpp"
-#include <list>
+#include "Class.h"
+#include "Class.cpp"
+
 using namespace std;
 
 /*
@@ -191,6 +196,7 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
 
 int main() {
     vector<Student> students;
+    vector<Class> classes;
     int gradeNum;
 
     // Start menu and get grade level
@@ -199,11 +205,24 @@ int main() {
 
     // get csv file names and try to read them into vectors
     bool studentFileRead = false;
+    bool classFileRead = false;
 
+    // read student file
     while (!studentFileRead) {
         string studentFile = getStringFromUser("Please enter the name of the students csv file: ");
         if(getStudentDataFromFile(studentFile, students)) {
             studentFileRead = true;
+        } else {
+            cout << "File not found" << endl;
+        }
+    }
+    cout << "\n";
+
+    // read class file
+    while (!classFileRead) {
+        string classFile = getStringFromUser("Please enter the name of the classes csv file: ");
+        if(getClassDataFromFile(classFile, classes)) {
+            classFileRead = true;
         } else {
             cout << "File not found" << endl;
         }

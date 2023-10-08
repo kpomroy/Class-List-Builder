@@ -1,5 +1,7 @@
 #include "Person.h"
 
+Person::Person() {}
+
 Person::Person(string firstName, string lastName, Sex sex) {
     this->firstName = firstName;
     this->lastName = lastName;
@@ -16,6 +18,18 @@ string Person::getLastName() const {
 
 Sex Person::getSex() const {
     return sex;
+}
+
+void Person::setFirstName(string firstName) {
+    this->firstName = firstName;
+}
+
+void Person::setLastName(string lastName) {
+    this->lastName = lastName;
+}
+
+void Person::setSex(Sex sex) {
+    this->sex = sex;
 }
 
 // Overloaded operators

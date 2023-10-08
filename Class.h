@@ -3,9 +3,12 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <fstream>
+#include <vector>
 #include "Student.h"
 #include "Teacher.h"
+#include "Teacher.cpp"
 using namespace std;
 
 /*
@@ -36,6 +39,12 @@ public:
     bool operator == (const Class &c);
 };
 
+/*
+ * Function to read in Teacher data from a csv file and save teachers as teacher objects in a vector
+ * Takes: filename - the csv filename
+ *        teachers - the vector of teachers to save the information to
+ * Returns: boolean value true if successful else false
+ */
 bool getClassDataFromFile(string filename, vector<Class>& classes);
 
 #endif //M1OEP_KPOMROY_CLASS_H
