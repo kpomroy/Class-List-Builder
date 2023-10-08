@@ -77,7 +77,7 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
         }
 
         // sex
-        getline(inFile, sexString, '\n');
+        getline(inFile, sexString, ',');
         if (sexString == "m") {
             sex = male;
         } else {
@@ -85,7 +85,7 @@ bool getStudentDataFromFile(string filename, vector<Student>& students) {
         }
 
         //gpa
-        getline(inFile, gpaString, ',');
+        getline(inFile, gpaString, '\n');
         gpa = stof(gpaString);
 
 
