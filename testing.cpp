@@ -96,8 +96,8 @@ bool teacherTesting() {
     bool classTesting() {
         bool passed = true;
         // default constructor
-        Teacher t;
-        if (t.getFirstName() != "" || t.getLastName() != "") {
+        Class c;
+        if (c.getTeacher() != "" || c.getGrade() != "") {
             cout << "Failed default constructor test case" << endl;
             passed = false;
         }
@@ -109,8 +109,8 @@ bool teacherTesting() {
             passed = false;
         }
         // getters and setters
-        t.setDept(Math);
-        if (t.getDept() != Math) {
+        c.setDept(Math);
+        if (c.getDept() != Math) {
             cout << "Failed department test case" << endl;
             passed = false;
         }
