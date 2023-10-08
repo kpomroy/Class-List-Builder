@@ -4,23 +4,16 @@
 #include "Teacher.h"
 
 // Constructors
-Teacher::Teacher(string firstName, string lastName, Sex sex, Grade grade, Department dept) : Person(firstName, lastName, sex), grade(grade), dept(dept){
+Teacher::Teacher(string firstName, string lastName, Sex sex, Department dept) : Person(firstName, lastName, sex), dept(dept){
 }
 
 // Getters
-Grade Teacher::getGrade() const {
-    return grade;
+Department Teacher::getDept() const {
+    return dept;
 }
-    Department Teacher::getDept() const {
-        return dept;
-    }
 
 
 // Setters
-    void Teacher::setGrade(Grade grade) {
-        this->grade = grade;
-    }
-
     void Teacher::setDept(Department dept) {
     this->dept = dept;
 }
