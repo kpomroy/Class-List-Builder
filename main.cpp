@@ -231,6 +231,9 @@ int main() {
     while (!classFileRead) {
         string classFile = getStringFromUser("Please enter the name of the classes csv file: ");
         if(getClassDataFromFile(classFile, classes)) {
+            for (Class c : classes) {
+                cout << c << endl;
+            }
             classFileRead = true;
         } else {
             cout << "File not found" << endl;
@@ -324,22 +327,22 @@ int main() {
 
         if (g == 0) {
             assignClasses(kindergarten, class1, class2);
-            outputResults(g, class1, class2, "kindergarten.txt");
+            outputResults(g, class1, class2, classes, "kindergarten.txt");
         } else if (g == 1) {
             assignClasses(firstGrade, class1, class2);
-            outputResults(g, class1, class2, "firstGrade.txt");
+            outputResults(g, class1, class2, classes, "firstGrade.txt");
         } else if (g == 2) {
             assignClasses(secondGrade, class1, class2);
-            outputResults(g, class1, class2, "secondGrade.txt");
+            outputResults(g, class1, class2, classes, "secondGrade.txt");
         } else if (g == 3) {
             assignClasses(thirdGrade, class1, class2);
-            outputResults(g, class1, class2, "thirdGrade.txt");
+            outputResults(g, class1, class2, classes, "thirdGrade.txt");
         } else if (g == 4) {
             assignClasses(fourthGrade, class1, class2);
-            outputResults(g, class1, class2, "fourthGrade.txt");
+            outputResults(g, class1, class2, classes, "fourthGrade.txt");
         } else {
             assignClasses(fifthGrade, class1, class2);
-            outputResults(g, class1, class2, "fifthGrade.txt");
+            outputResults(g, class1, class2, classes, "fifthGrade.txt");
         }
     }
     return 0;

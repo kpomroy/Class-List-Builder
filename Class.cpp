@@ -75,6 +75,15 @@ bool getClassDataFromFile(std::string filename, vector<Class> &classes) {
         getline(inFile, firstName, ',');
         // last name
         getline(inFile, lastName, ',');
+
+        // sex
+        getline(inFile, sexString, ',');
+        if (sexString == "m") {
+            sex = male;
+        } else {
+            sex = female;
+        }
+
         // grade
         getline(inFile, gradeNum, ',');
         // convert to Grade object
@@ -92,15 +101,7 @@ bool getClassDataFromFile(std::string filename, vector<Class> &classes) {
             grade = fifth;
         }
 
-        // sex
-        getline(inFile, sexString, '\n');
-        if (sexString == "m") {
-            sex = male;
-        } else {
-            sex = female;
-        }
-
-        //Departement
+        //Department
         getline(inFile, deptString, '\n');
         if(deptString == "Math"){
             dept = Math;
