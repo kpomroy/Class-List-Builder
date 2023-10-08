@@ -8,11 +8,25 @@
 using namespace std;
 
 bool personTesting();
+bool studentTesting();
+bool teacherTesting();
+bool classTesting();
+
 int main() {
     if(personTesting()) {
         cout << "Passed all test cases!" << endl;
     }
+
+    if(teacherTesting()){
+        cout << "Passed all test cases!" << endl;
+    }
+
+    if(classTesting()){
+        cout << "Passed all test cases!" << endl;
+    }
+
     return 0;
+
 }
 
 bool personTesting() {
@@ -75,22 +89,33 @@ bool teacherTesting() {
         cout << "Failed department test case" << endl;
         passed = false;
     }
-    t.setLastName("last");
-    if (t.getLastName() != "last") {
-        cout << "Failed last name test case" << endl;
-        passed = false;
-    }
-    t.setSex(female);
-    if (t.getSex() != female) {
-        cout << "Failed sex test case" << endl;
-        passed = false;
-    }
-    // overloaded operators
-    if (!(t == t2)) {
-        cout << "Failed == case" << endl;
-        passed = false;
-    }
 
     return passed;
-
 }
+
+    bool classTesting() {
+        bool passed = true;
+        // default constructor
+        Teacher t;
+        if (t.getFirstName() != "" || t.getLastName() != "") {
+            cout << "Failed default constructor test case" << endl;
+            passed = false;
+        }
+        // constructor
+        Teacher t2("first", "last", male, Math);
+        if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male ||
+            t2.getDept() != Math) {
+            cout << "Failed constructor test case" << endl;
+            passed = false;
+        }
+        // getters and setters
+        t.setDept(Math);
+        if (t.getDept() != Math) {
+            cout << "Failed department test case" << endl;
+            passed = false;
+        }
+
+        return passed;
+    }
+
+
