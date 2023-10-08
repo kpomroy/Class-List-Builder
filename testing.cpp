@@ -8,6 +8,8 @@ using namespace std;
 
 bool personTesting();
 bool studentTesting();
+bool teacherTesting();
+bool classTesting();
 
 int main() {
     if(personTesting()) {
@@ -16,6 +18,15 @@ int main() {
     if(studentTesting()) {
         cout << "Passed student test cases" << endl;
     }
+
+    if(teacherTesting()){
+        cout << "Passed all test cases!" << endl;
+    }
+
+    if(classTesting()){
+        cout << "Passed all test cases!" << endl;
+    }
+
     return 0;
 }
 
@@ -94,3 +105,54 @@ bool studentTesting() {
     }
     return passed;
 }
+
+bool teacherTesting() {
+    bool passed = true;
+    // default constructor
+    Teacher t;
+    if (t.getFirstName() != "" || t.getLastName() != "") {
+        cout << "Failed default constructor test case" << endl;
+        passed = false;
+    }
+    // constructor
+    Teacher t2("first", "last", male, Math);
+    if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male || t2.getDept() != Math) {
+        cout << "Failed constructor test case" << endl;
+        passed = false;
+    }
+    // getters and setters
+    t.setDept(Math);
+    if (t.getDept() != Math) {
+        cout << "Failed department test case" << endl;
+        passed = false;
+    }
+
+    return passed;
+}
+
+    bool classTesting() {
+        bool passed = true;
+        // default constructor
+        Teacher t;
+        if (t.getFirstName() != "" || t.getLastName() != "") {
+            cout << "Failed default constructor test case" << endl;
+            passed = false;
+        }
+        // constructor
+        Teacher t2("first", "last", male, Math);
+        if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male ||
+            t2.getDept() != Math) {
+            cout << "Failed constructor test case" << endl;
+            passed = false;
+        }
+        // getters and setters
+        t.setDept(Math);
+        if (t.getDept() != Math) {
+            cout << "Failed department test case" << endl;
+            passed = false;
+        }
+
+        return passed;
+    }
+
+
