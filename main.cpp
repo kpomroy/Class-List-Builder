@@ -4,10 +4,9 @@
 #include <fstream>
 #include <list>
 #include <vector>
-#include "Student.h"
 #include "Student.cpp"
-#include "Class.h"
 #include "Class.cpp"
+#include "Person.cpp"
 
 using namespace std;
 
