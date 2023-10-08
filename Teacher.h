@@ -60,14 +60,5 @@ public:
 };
 
 
-/*
- * Function to read in Teacher data from a csv file and save teachers as teacher objects in a vector
- * Takes: filename - the csv filename
- *        teachers - the vector of teachers to save the information to
- * Returns: boolean value true if successful else false
- */
-bool getTeacherDataFromFile(string filename, vector<Teacher>& teachers);
-
-
 
 #endif //M1OEP_TEACHER_H
