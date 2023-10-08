@@ -2,6 +2,7 @@
 #define M2OEP_KPOMROY_SALAMUTU_PERSON_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 enum Sex {male, female};

@@ -18,6 +18,18 @@ Sex Person::getSex() const {
     return sex;
 }
 
+void Person::setFirstName(string firstName) {
+    this->firstName = firstName;
+}
+
+void Person::setLastName(string lastName) {
+    this->lastName = lastName;
+}
+
+void Person::setSex(Sex sex) {
+    this->sex = sex;
+}
+
 // Overloaded operators
 ostream& operator << (ostream& os, const Person& p) {
     os << p.getFirstName() << " " << p.getLastName();
