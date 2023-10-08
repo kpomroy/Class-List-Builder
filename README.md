@@ -22,8 +22,7 @@ When running the program, it will prompt the user to provide the name of the CSV
 No known bugs have been reported in the current version of the program.
 
 ## Future Work
-The original intention was to extend the program's capabilities to handle class assignments for any number of classes per grade. However, due to performance concerns with the existing algorithm, this feature has not been implemented yet. Future plans include enhancing the algorithm's efficiency and allowing users to specify criteria for student assignments, such as students who must or cannot be in the same class.
-
+Future goals of this project include editing the algorithm to work for any number of classes per grade. Another goal is implementing relationships between students that would require them or prevent them from being in class with other specific students who they either get along with or don't get along with.
 
 ## Expected Grade
 - **Main Program Complexity and Usability**: 40 pts
