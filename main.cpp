@@ -231,9 +231,6 @@ int main() {
     while (!classFileRead) {
         string classFile = getStringFromUser("Please enter the name of the classes csv file: ");
         if(getClassDataFromFile(classFile, classes)) {
-            for (Class c : classes) {
-                cout << c << endl;
-            }
             classFileRead = true;
         } else {
             cout << "File not found" << endl;
