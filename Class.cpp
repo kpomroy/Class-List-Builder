@@ -122,6 +122,7 @@ bool getClassDataFromFile(std::string filename, vector<Class> &classes) {
         //Create a class object and add it to the vector
         classes.push_back(Class(t, grade));
     }
+
     //close the file
     inFile.close();
     return true;
