@@ -20,11 +20,11 @@ int main() {
     }
 
     if(teacherTesting()){
-        cout << "Passed all test cases!" << endl;
+        cout << "Passed teacher test cases" << endl;
     }
 
     if(classTesting()){
-        cout << "Passed all test cases!" << endl;
+        cout << "Passed class test cases" << endl;
     }
 
     return 0;
@@ -111,13 +111,13 @@ bool teacherTesting() {
     // default constructor
     Teacher t;
     if (t.getFirstName() != "" || t.getLastName() != "") {
-        cout << "Failed default constructor test case" << endl;
+        cout << "Failed teacher default constructor test case" << endl;
         passed = false;
     }
     // constructor
     Teacher t2("first", "last", male, Math);
     if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male || t2.getDept() != Math) {
-        cout << "Failed constructor test case" << endl;
+        cout << "Failed teacher constructor test case" << endl;
         passed = false;
     }
     // getters and setters
