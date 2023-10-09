@@ -126,33 +126,44 @@ bool teacherTesting() {
         cout << "Failed department test case" << endl;
         passed = false;
     }
+    // overloaded operators
+    if (!(t == t2)) {
+        cout << "Failed student == case" << endl;
+        passed = false;
 
+
+    }
     return passed;
 }
 
     bool classTesting() {
         bool passed = true;
         // default constructor
-        Teacher t;
-        if (t.getFirstName() != "" || t.getLastName() != "") {
+        Class c;
+        if (c.getTeacher() != "" || c.getGrade() != "") {
             cout << "Failed default constructor test case" << endl;
             passed = false;
         }
         // constructor
-        Teacher t2("first", "last", male, Math);
-        if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male ||
-            t2.getDept() != Math) {
+        Class c2(t2, kindergarten);
+        if (c2.getTeacher() != "first" || c2.getGrade() != "last" ||) {
             cout << "Failed constructor test case" << endl;
             passed = false;
         }
+
         // getters and setters
-        t.setDept(Math);
-        if (t.getDept() != Math) {
-            cout << "Failed department test case" << endl;
+        c.setGrade(kindergarten);
+        if (c.getGrade() != kindergarten) {
+            cout << "Failed grade test case" << endl;
             passed = false;
         }
+
+
+        c.setTeacher(t2);
+        if()
 
         return passed;
     }
 
 
+}
