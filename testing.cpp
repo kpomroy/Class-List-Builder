@@ -126,7 +126,13 @@ bool teacherTesting() {
         cout << "Failed department test case" << endl;
         passed = false;
     }
+    // overloaded operators
+    if (!(t == t2)) {
+        cout << "Failed student == case" << endl;
+        passed = false;
 
+
+    }
     return passed;
 }
 
@@ -139,20 +145,25 @@ bool teacherTesting() {
             passed = false;
         }
         // constructor
-        Teacher t2("first", "last", male, Math);
-        if (t2.getFirstName() != "first" || t2.getLastName() != "last" || t2.getSex() != male ||
-            t2.getDept() != Math) {
+        Class c2(t2, kindergarten);
+        if (c2.getTeacher() != "first" || c2.getGrade() != "last" ||) {
             cout << "Failed constructor test case" << endl;
             passed = false;
         }
+
         // getters and setters
-        c.setDept(Math);
-        if (c.getDept() != Math) {
-            cout << "Failed department test case" << endl;
+        c.setGrade(kindergarten);
+        if (c.getGrade() != kindergarten) {
+            cout << "Failed grade test case" << endl;
             passed = false;
         }
+
+
+        c.setTeacher(t2);
+        if()
 
         return passed;
     }
 
 
+}
