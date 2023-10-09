@@ -1,6 +1,6 @@
 #include "Person.cpp"
 #include "Student.cpp"
-#include "Teacher.cpp"
+#include "Teacher.h"
 #include "Class.cpp"
 
 #include <iostream>
@@ -121,6 +121,8 @@ bool teacherTesting() {
         passed = false;
     }
     // getters and setters
+    t.setFirstName("first");
+    t.setLastName("last");
     t.setDept(Math);
     if (t.getDept() != Math) {
         cout << "Failed department test case" << endl;
@@ -128,42 +130,39 @@ bool teacherTesting() {
     }
     // overloaded operators
     if (!(t == t2)) {
-        cout << "Failed student == case" << endl;
+        cout << "Failed teacher == case" << endl;
         passed = false;
-
-
     }
     return passed;
 }
 
-    bool classTesting() {
-        bool passed = true;
-        // default constructor
-        Class c;
-        if (c.getTeacher() != "" || c.getGrade() != "") {
-            cout << "Failed default constructor test case" << endl;
-            passed = false;
-        }
-        // constructor
-        Class c2(t2, kindergarten);
-        if (c2.getTeacher() != "first" || c2.getGrade() != "last" ||) {
-            cout << "Failed constructor test case" << endl;
-            passed = false;
-        }
-
-        // getters and setters
-        c.setGrade(kindergarten);
-        if (c.getGrade() != kindergarten) {
-            cout << "Failed grade test case" << endl;
-            passed = false;
-        }
-
-
-        c.setTeacher(t2);
-        if()
-
-        return passed;
+bool classTesting() {
+    bool passed = true;
+    // default constructor
+    Class c;
+    if (c.getTeacher().getFirstName() != "" || c.getTeacher().getLastName() != "") {
+        cout << "Failed class default constructor test case" << endl;
+        passed = false;
+    }
+    // constructor
+    Teacher t("first", "last", male, Math);
+    Class c2(t, kindergarten);
+    if (c2.getTeacher().getFirstName() != "first" || c2.getTeacher().getLastName() != "last" || c2.getTeacher().getSex() != male || c2.getTeacher().getDept() != Math || c2.getGrade() != kindergarten) {
+        cout << "Failed constructor test case" << endl;
+        passed = false;
     }
 
+    // getters and setters
+    c.setGrade(first);
+    c.setTeacher(t);
+    if (c.getGrade() != first) {
+        cout << "Failed class grade test case" << endl;
+        passed = false;
+    }
+    if (!(c.getTeacher() == t)) {
+        cout << "Failed class teacher test case" << endl;
+        passed = false;
+    }
 
+    return passed;
 }
