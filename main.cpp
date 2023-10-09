@@ -229,7 +229,7 @@ int main() {
 
     // read class file
     while (!classFileRead) {
-        string classFile = getStringFromUser("Please enter the name of the classes csv file: ");
+        string classFile = getStringFromUser("Please enter the name of the teachers csv file: ");
         if(getClassDataFromFile(classFile, classes)) {
             classFileRead = true;
         } else {
