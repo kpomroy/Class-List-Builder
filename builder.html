@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Kevin Pomroy, Sam Alamutu, Kira Safferstein">
+        <title>Class List Builder</title>
+        <meta name="description" content="This page builds class lists">
+        <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+    <body>
+    	<header>
+    		<h1>Class List Builder</h1>
+    	</header>
+        <form enctype="multipart/form-data" action="results.php" method="POST">
+        <label for="grades">Choose a grade:</label>
+            <select name="grades" id="grades">
+                <option value="Kindergarten">Kindergarten</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Fourth">Fourth</option>
+                <option value="Fifth">Fifth</option>
+            </select>
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>

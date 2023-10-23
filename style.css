@@ -1,0 +1,17 @@
+:root{
+    --main-text-color: black;
+    --main-secondary-color: steelblue;
+    --nav-bg-color-rgba: steelblue;
+    --main-bg-color-rgba: white;
+    --background-odd:rgba(189, 226, 255, 0.7);
+    --background-even: rgba(226, 242, 255, 0.8);
+    --header-color-rgba: steelblue;
+}
+
+html{
+    background-color: var(--main-bg-color-rgba);
+    color: var(--main-text-color);
+    font-family: impact, "Arial", sans-serif;
+    padding: .5em;
+    margin: 0em;
+}
