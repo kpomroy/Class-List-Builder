@@ -179,6 +179,11 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
             femaleCount++;
         }
     }
+
+    // Pass maleCount and femaleCount to python to use in the graph
+    string classOneMale = "python class.py " + to_string(maleCount);
+    string classOneFemale = "python class.py" + to_string(femaleCount);
+
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
     outFile << "FEMALES: " << femaleCount << endl;
@@ -195,6 +200,11 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
             femaleCount++;
         }
     }
+
+    // Pass maleCount and femaleCount to python to use in the graph
+    string classTwoMale = "python class.py " + to_string(maleCount);
+    string classTwoFemale = "python class.py" + to_string(femaleCount);
+
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
     outFile << "FEMALES: " << femaleCount << endl;
