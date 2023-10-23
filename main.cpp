@@ -144,6 +144,25 @@ void assignClasses(vector<Student> students, vector<Student> &class1, vector<Stu
     }
 }
 
+
+// Create a function to execute the python script
+void executePythonScript(const std::string& script) {
+    char buffer[128];
+    std::string result = "";
+    FILE* pipe = popen(script.c_str(), "r");
+    if (!pipe) {
+        std::cerr << "Failed to execute Python script" << std::endl;
+        cout << result << endl;
+    }
+
+    while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
+        result += buffer;
+    }
+
+    pclose(pipe);
+    cout << result << endl;
+}
+
 /*
  * Function to output class lists to a txt file for easy viewing by the user
  * txt file displays grade, student names, and the number of males and females in each class
@@ -180,9 +199,9 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
         }
     }
 
-    // Pass maleCount and femaleCount to python to use in the graph
-    string classOneMale = "python class.py " + to_string(maleCount);
-    string classOneFemale = "python class.py" + to_string(femaleCount);
+    // Pass these values to be used in the python script class.py
+    string classOneMale = executePythonScript("python class.py " + to_string(maleCount));
+    string classOneFemale = executePythonScript("python class.py " + to_string(femaleCount));
 
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
@@ -201,9 +220,9 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
         }
     }
 
-    // Pass maleCount and femaleCount to python to use in the graph
-    string classTwoMale = "python class.py " + to_string(maleCount);
-    string classTwoFemale = "python class.py" + to_string(femaleCount);
+    // Pass these values to be used in the python script class.py
+    string classTwoMale = executePythonScript("python class.py " + to_string(maleCount));
+    string classTwoFemale = executePythonScript("python class.py " + to_string(femaleCount));
 
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
