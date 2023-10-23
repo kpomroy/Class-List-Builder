@@ -17,6 +17,28 @@
         $grade = $_POST["grades"];
         echo "You chose grade " . $grade;
 
+        // Print the txt file that was created with all of the data
+        $textFile0 = "Kindergarten.txt";
+        $textFile1 = "First.txt";
+        $textFile2 = "Second.txt";
+        $textFile3 = "Third.txt";
+        $textFile4 = "Fourth.txt";
+        $textFile5 = "Fifth.txt";
+
+        if (file_exists($textFile0)) {
+            readfile($textFile0); // Display the contents of the text file
+        } else if (file_exists($textFile1)) {
+            readfile($textFile1); 
+        } else if (file_exists($textFile2)) {
+            readfile($textFile2); 
+        } else if (file_exists($textFile3)) {
+            readfile($textFile3);
+        } else if (file_exists($textFile4)) {
+            readfile($textFile4); 
+        } else {
+            readfile($textFile5); 
+        }
+
         // Create a folder for the user where the processing will take place. It will be named a random number (so that it's different for each submission).
         $rand_number = rand();
         while (file_exists($rand_number)) {
