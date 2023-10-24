@@ -199,8 +199,8 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     }
 
     // Pass these values to be used in the python script class.py
-    executePythonScript("python class.py " + to_string(maleCount));
-    executePythonScript("python class.py " + to_string(femaleCount));
+    // executePythonScript("python class.py " + to_string(maleCount));
+    // executePythonScript("python class.py " + to_string(femaleCount));
 
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
@@ -220,8 +220,8 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     }
 
     // Pass these values to be used in the python script class.py
-    executePythonScript("python class.py " + to_string(maleCount));
-    executePythonScript("python class.py " + to_string(femaleCount));
+    // executePythonScript("python class.py " + to_string(maleCount));
+    // executePythonScript("python class.py " + to_string(femaleCount));
 
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
@@ -231,40 +231,49 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     outFile.close();
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     vector<Student> students;
     vector<Class> classes;
     int gradeNum;
+    string grade = argv[1];
+    string studentFile = argv[2];
+    string classFile = argv[3];
+    // cout << grade << endl;
+    // cout << studentFile << endl;
+    // cout << classFile << endl;
 
-    // Start menu and get grade level
-    cout << "Welcome to the class list builder" << endl;
-    cout << "\n";
+    getStudentDataFromFile(studentFile, students);
+    getClassDataFromFile(classFile, classes);
 
-    // get csv file names and try to read them into vectors
-    bool studentFileRead = false;
-    bool classFileRead = false;
+    // // Start menu and get grade level
+    // cout << "Welcome to the class list builder" << endl;
+    // cout << "\n";
 
-    // read student file
-    while (!studentFileRead) {
-        string studentFile = getStringFromUser("Please enter the name of the students csv file: ");
-        if(getStudentDataFromFile(studentFile, students)) {
-            studentFileRead = true;
-        } else {
-            cout << "File not found" << endl;
-        }
-    }
-    cout << "\n";
+    // // get csv file names and try to read them into vectors
+    // bool studentFileRead = false;
+    // bool classFileRead = false;
 
-    // read class file
-    while (!classFileRead) {
-        string classFile = getStringFromUser("Please enter the name of the teachers csv file: ");
-        if(getClassDataFromFile(classFile, classes)) {
-            classFileRead = true;
-        } else {
-            cout << "File not found" << endl;
-        }
-    }
-    cout << "\n";
+    // // read student file
+    // while (!studentFileRead) {
+    //     string studentFile = getStringFromUser("Please enter the name of the students csv file: ");
+    //     if(getStudentDataFromFile(studentFile, students)) {
+    //         studentFileRead = true;
+    //     } else {
+    //         cout << "File not found" << endl;
+    //     }
+    // }
+    // cout << "\n";
+
+    // // read class file
+    // while (!classFileRead) {
+    //     string classFile = getStringFromUser("Please enter the name of the teachers csv file: ");
+    //     if(getClassDataFromFile(classFile, classes)) {
+    //         classFileRead = true;
+    //     } else {
+    //         cout << "File not found" << endl;
+    //     }
+    // }
+    // cout << "\n";
 
     // separate students into grade vectors
     vector<Student> kindergarten;
@@ -290,85 +299,87 @@ int main() {
         }
     }
 
-    // allow user to choose which grade(s) they want to make class lists for
-    cout << "What grade(s) would you like class lists for?" << endl;
-    vector<Grade> selectedGrades;
-    string addGrade;
-    Grade gradeString;
-    bool additionalGrade = true;
+    // // allow user to choose which grade(s) they want to make class lists for
+    // cout << "What grade(s) would you like class lists for?" << endl;
+    // vector<Grade> selectedGrades;
+    // string addGrade;
+    // Grade gradeString;
+    // bool additionalGrade = true;
 
-    while (additionalGrade) {
-        bool duplicate = false;
-        // display grade options and get user input
-        printGrades();
-        gradeNum = getGradeNum();
-        gradeString = intToGrade(gradeNum);
-        for (Grade g : selectedGrades) {
-            if (gradeString == g) {
-                cout << "You already selected this grade" << endl;
-                duplicate = true;
-            }
-        }
-        // dont allow duplicate grade selections and end loop once all grades are selected
-        if (!duplicate) {
-            selectedGrades.push_back(gradeString);
-        }
-        if (selectedGrades.size() < 6) {
-            cout << "\n";
-            cout << "Would you like to add another grade? (y/n) ";
-            getline(cin, addGrade);
-        } else {
-            additionalGrade = false;
-        }
+    // while (additionalGrade) {
+    //     bool duplicate = false;
+    //     // display grade options and get user input
+    //     printGrades();
+    //     gradeNum = getGradeNum();
+    //     gradeString = intToGrade(gradeNum);
+    //     for (Grade g : selectedGrades) {
+    //         if (gradeString == g) {
+    //             cout << "You already selected this grade" << endl;
+    //             duplicate = true;
+    //         }
+    //     }
+    //     // dont allow duplicate grade selections and end loop once all grades are selected
+    //     if (!duplicate) {
+    //         selectedGrades.push_back(gradeString);
+    //     }
+    //     if (selectedGrades.size() < 6) {
+    //         cout << "\n";
+    //         cout << "Would you like to add another grade? (y/n) ";
+    //         getline(cin, addGrade);
+    //     } else {
+    //         additionalGrade = false;
+    //     }
 
-        // validate user input
-        while (addGrade != "n" && addGrade != "N" && addGrade != "y" && addGrade != "Y") {
-            cout << "Invalid choice." << endl;
-            cout << "Would you like to add another grade? (y/n) ";
-            getline(cin, addGrade);
-        }
-        if (addGrade == "n" || addGrade == "N") {
-            additionalGrade = false;
-        }
-    }
-    // print selection(s) for user feedback
-    cout << "\n";
-    cout << "Creating class lists for: " << endl;
-    for (Grade g : selectedGrades) {
-        if (g == 0) {
-            cout << gradeToString(g) << endl;
-        } else {
-            cout << gradeToString(g) << " grade" << endl;
-        }
-    }
+    //     // validate user input
+    //     while (addGrade != "n" && addGrade != "N" && addGrade != "y" && addGrade != "Y") {
+    //         cout << "Invalid choice." << endl;
+    //         cout << "Would you like to add another grade? (y/n) ";
+    //         getline(cin, addGrade);
+    //     }
+    //     if (addGrade == "n" || addGrade == "N") {
+    //         additionalGrade = false;
+    //     }
+    // }
+    // // print selection(s) for user feedback
+    // cout << "\n";
+    // cout << "Creating class lists for: " << endl;
+    // for (Grade g : selectedGrades) {
+    //     if (g == 0) {
+    //         cout << gradeToString(g) << endl;
+    //     } else {
+    //         cout << gradeToString(g) << " grade" << endl;
+    //     }
+    // }
 
     // make lists for selected grades
     // repeat sorting algorithm for each grade
-    for (Grade g : selectedGrades) {
-        string gradeName = gradeToString(g);
-        string gradeVector;
-        vector<Student> class1;
-        vector<Student> class2;
+    // for (Grade g : selectedGrades) {
+        // string gradeName = gradeToString(g);
+        // string gradeVector;
+    vector<Student> class1;
+    vector<Student> class2;
 
-        if (g == 0) {
-            assignClasses(kindergarten, class1, class2);
-            outputResults(g, class1, class2, classes, "kindergarten.txt");
-        } else if (g == 1) {
-            assignClasses(firstGrade, class1, class2);
-            outputResults(g, class1, class2, classes, "firstGrade.txt");
-        } else if (g == 2) {
-            assignClasses(secondGrade, class1, class2);
-            outputResults(g, class1, class2, classes, "secondGrade.txt");
-        } else if (g == 3) {
-            assignClasses(thirdGrade, class1, class2);
-            outputResults(g, class1, class2, classes, "thirdGrade.txt");
-        } else if (g == 4) {
-            assignClasses(fourthGrade, class1, class2);
-            outputResults(g, class1, class2, classes, "fourthGrade.txt");
-        } else {
-            assignClasses(fifthGrade, class1, class2);
-            outputResults(g, class1, class2, classes, "fifthGrade.txt");
-        }
+    if (grade == "Kindergarten") {
+        assignClasses(kindergarten, class1, class2);
+        cout << "Starting output" << endl;
+        outputResults(intToGrade(0), class1, class2, classes, "kindergarten.txt");
+        cout << "Ending output" << endl;
+    } else if (grade == "First") {
+        assignClasses(firstGrade, class1, class2);
+        outputResults(intToGrade(1), class1, class2, classes, "firstGrade.txt");
+    } else if (grade == "Second") {
+        assignClasses(secondGrade, class1, class2);
+        outputResults(intToGrade(2), class1, class2, classes, "secondGrade.txt");
+    } else if (grade == "Third") {
+        assignClasses(thirdGrade, class1, class2);
+        outputResults(intToGrade(3), class1, class2, classes, "thirdGrade.txt");
+    } else if (grade == "Fourth") {
+        assignClasses(fourthGrade, class1, class2);
+        outputResults(intToGrade(4), class1, class2, classes, "fourthGrade.txt");
+    } else {
+        assignClasses(fifthGrade, class1, class2);
+        outputResults(intToGrade(5), class1, class2, classes, "fifthGrade.txt");
     }
+    //}
     return 0;
 }

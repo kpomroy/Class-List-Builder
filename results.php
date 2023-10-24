@@ -15,51 +15,41 @@
         <?php
         
         $grade = $_POST["grades"];
-        echo "You chose grade " . $grade;
+        $studentFile = $_POST["student-file"];
+        $teacherFile = $_POST["teacher-file"];
+        echo "<p> You chose grade: " . $grade . "</p>";
+        echo "<p> Student file: " . $studentFile . "</p>";
+        echo "<p> Teacher file: " . $teacherFile . "</p>";
+  
+        // Make command line call to execute main
+        // Passing in grade and file strings
+        $output = shell_exec("pwd");
+        echo $output . "\n";
+        echo "g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile . "\n";
+        //shell_exec("g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile);
 
         // Print the txt file that was created with all of the data
-        $textFile0 = "Kindergarten.txt";
-        $textFile1 = "First.txt";
-        $textFile2 = "Second.txt";
-        $textFile3 = "Third.txt";
-        $textFile4 = "Fourth.txt";
-        $textFile5 = "Fifth.txt";
+        $textFile0 = "kindergarten.txt";
+        $textFile1 = "firstGrade.txt";
+        $textFile2 = "secondGrade.txt";
+        $textFile3 = "thirdGrade.txt";
+        $textFile4 = "fourthGrade.txt";
+        $textFile5 = "fifthGrade.txt";
 
-        if (file_exists($textFile0)) {
+        if ($grade == "Kindergarten" && file_exists($textFile0)) {
             readfile($textFile0); // Display the contents of the text file
-        } else if (file_exists($textFile1)) {
+        } else if ($grade == "First" && file_exists($textFile1)) {
             readfile($textFile1); 
-        } else if (file_exists($textFile2)) {
+        } else if ($grade == "Second" && file_exists($textFile2)) {
             readfile($textFile2); 
-        } else if (file_exists($textFile3)) {
+        } else if ($grade == "Third" && file_exists($textFile3)) {
             readfile($textFile3);
-        } else if (file_exists($textFile4)) {
+        } else if ($grade == "Fourth" && file_exists($textFile4)) {
             readfile($textFile4); 
         } else {
             readfile($textFile5); 
         }
-
-        // Create a folder for the user where the processing will take place. It will be named a random number (so that it's different for each submission).
-        $rand_number = rand();
-        while (file_exists($rand_number)) {
-            $rand_number = rand();
-        }
-        $command_mkdir = escapeshellcmd("mkdir " . $rand_number);
-        $output_mkdir = shell_exec($command_mkdir);
-
-        // Copy the files into the folder.
-        $output_cp = shell_exec("cp List* " . $rand_number);
-        $command_cp2 = escapeshellcmd("cp main.cpp " . $rand_number);
-        $output_cp2 = shell_exec($command_cp2);
-        $output = shell_exec("cd " . $rand_number . ";g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . ";cd ..");
-
-        // Print the output from the C++ program to the webpage.
-        echo $output;
-        
-        // Delete the folder
-        array_map("unlink", glob($rand_number . "/*"));
-        rmdir($rand_number);
-
+    
         ?>
     </body>
 </html>

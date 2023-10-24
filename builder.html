@@ -12,6 +12,7 @@
     		<h1>Class List Builder</h1>
     	</header>
         <form enctype="multipart/form-data" action="results.php" method="POST">
+        <p>
         <label for="grades">Choose a grade:</label>
             <select name="grades" id="grades">
                 <option value="Kindergarten">Kindergarten</option>
@@ -21,7 +22,18 @@
                 <option value="Fourth">Fourth</option>
                 <option value="Fifth">Fifth</option>
             </select>
-            <input type="submit" value="Submit" />
+        </p>
+        <p>
+        <label for="studentFile">Enter your student file name (csv)</label>
+            <input type="text" name="student-file" /><br />
+        </p>
+        <p>
+        <label for="teacherFile">Enter your teacher file name (csv)</label>
+            <input type="text" name="teacher-file" /><br />
+        </p>
+        <p>
+        <input id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Submit">
+        </p>
         </form>
     </body>
 </html>
