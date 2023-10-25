@@ -8,11 +8,14 @@ classOneMale, classOneFemale, classTwoMale, classTwoFemale = map(int, sys.argv[1
 categories = ['Males in Class 1', 'Females in Class 1', 'Males in Class 2', 'Females in Class 2']
 values = [classOneMale, classOneFemale, classTwoMale, classTwoFemale]
 
-# Create a bar graph
-plt.bar(categories, values)
+# Set each bar to be a color
+colors = ['b', 'r', 'b', 'r']
+
+# Create a bar graph with different colors for gender
+plt.bar(categories, values, color=colors)
 
 # Add labels and title
-plt.xlabel('Type of Student')
+plt.xlabel('Gender of Student')
 plt.ylabel('Number of Students')
 plt.title('Number of Males and Females in Each Class')
 
