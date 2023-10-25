@@ -28,7 +28,7 @@
         echo "g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile . "\n";
 
         echo "<p>starting command shell call</p>";
-        $command = shell_exec("g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile);
+        shell_exec("g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile);
         echo "<p>ending command shell call</p>";
 
         // Print the txt file that was created with all of the data
