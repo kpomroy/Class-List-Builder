@@ -28,6 +28,7 @@
         echo "g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile . "\n";
 
         echo "<p>starting command shell call</p>";
+        shell_exec("mkdir testing");
         shell_exec("g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile);
         echo "<p>ending command shell call</p>";
 
@@ -39,6 +40,8 @@
         $textFile4 = "fourthGrade.txt";
         $textFile5 = "fifthGrade.txt";
 
+
+        // TODO: FORMAT TO PRINT ONE LINE AT A TIME
         if ($grade == "Kindergarten" && file_exists($textFile0)) {
             readfile($textFile0); // Display the contents of the text file
         } else if ($grade == "First" && file_exists($textFile1)) {
