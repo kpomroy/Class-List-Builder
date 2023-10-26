@@ -41,12 +41,20 @@
         $textFile5 = "fifthGrade.txt";
 
 
-        // TODO: FORMAT TO PRINT ONE LINE AT A TIME
-        // How to read one line at a time from txt file in PHP
+        // KINDERGARTEN IS FUNCTIONAL
+        // TODO: copy into the rest of the grades
+        echo "<table>";
         if ($grade == "Kindergarten" && file_exists($textFile0)) {
-            $myfile = fopen("kindergarten.txt", "r") or die("Unable to open file!");
-            echo fread($myfile . "\n",filesize("kindergarten.txt"));
-            fclose($myfile); // Display the contents of the text file
+            $lines = file('kindergarten.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            }
+            
         } else if ($grade == "First" && file_exists($textFile1)) {
             readfile($textFile1); 
         } else if ($grade == "Second" && file_exists($textFile2)) {
@@ -58,7 +66,7 @@
         } else {
             readfile($textFile5); 
         }
-    
+        echo "</table>";
         ?>
     </body>
 </html>
