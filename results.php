@@ -56,14 +56,51 @@
             }
             
         } else if ($grade == "First" && file_exists($textFile1)) {
-            readfile($textFile1); 
-        } else if ($grade == "Second" && file_exists($textFile2)) {
-            readfile($textFile2); 
-        } else if ($grade == "Third" && file_exists($textFile3)) {
-            readfile($textFile3);
-        } else if ($grade == "Fourth" && file_exists($textFile4)) {
-            readfile($textFile4); 
-        } else {
+            $lines = file('firstGrade.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            }
+
+        } 
+        else if ($grade == "Second" && file_exists($textFile2)) {
+            $lines = file('secondGrade.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            } 
+        } 
+        else if ($grade == "Third" && file_exists($textFile3)) {
+            $lines = file('thirdGrade.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            } 
+        } 
+        else if ($grade == "Fourth" && file_exists($textFile4)) {
+            $lines = file('fourthGrade.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            } 
+        } 
+        else {
             readfile($textFile5); 
         }
         echo "</table>";
