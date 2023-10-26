@@ -4,6 +4,7 @@
 #include <fstream>
 #include <list>
 #include <vector>
+#include <algorithm>
 #include "Student.cpp"
 #include "Class.cpp"
 #include "Person.cpp"
@@ -238,42 +239,10 @@ int main(int argc, char* argv[]) {
     string grade = argv[1];
     string studentFile = argv[2];
     string classFile = argv[3];
-    // cout << grade << endl;
-    // cout << studentFile << endl;
-    // cout << classFile << endl;
 
     getStudentDataFromFile(studentFile, students);
     getClassDataFromFile(classFile, classes);
 
-    // // Start menu and get grade level
-    // cout << "Welcome to the class list builder" << endl;
-    // cout << "\n";
-
-    // // get csv file names and try to read them into vectors
-    // bool studentFileRead = false;
-    // bool classFileRead = false;
-
-    // // read student file
-    // while (!studentFileRead) {
-    //     string studentFile = getStringFromUser("Please enter the name of the students csv file: ");
-    //     if(getStudentDataFromFile(studentFile, students)) {
-    //         studentFileRead = true;
-    //     } else {
-    //         cout << "File not found" << endl;
-    //     }
-    // }
-    // cout << "\n";
-
-    // // read class file
-    // while (!classFileRead) {
-    //     string classFile = getStringFromUser("Please enter the name of the teachers csv file: ");
-    //     if(getClassDataFromFile(classFile, classes)) {
-    //         classFileRead = true;
-    //     } else {
-    //         cout << "File not found" << endl;
-    //     }
-    // }
-    // cout << "\n";
 
     // separate students into grade vectors
     vector<Student> kindergarten;
@@ -298,58 +267,6 @@ int main(int argc, char* argv[]) {
             fifthGrade.push_back(s);
         }
     }
-
-    // // allow user to choose which grade(s) they want to make class lists for
-    // cout << "What grade(s) would you like class lists for?" << endl;
-    // vector<Grade> selectedGrades;
-    // string addGrade;
-    // Grade gradeString;
-    // bool additionalGrade = true;
-
-    // while (additionalGrade) {
-    //     bool duplicate = false;
-    //     // display grade options and get user input
-    //     printGrades();
-    //     gradeNum = getGradeNum();
-    //     gradeString = intToGrade(gradeNum);
-    //     for (Grade g : selectedGrades) {
-    //         if (gradeString == g) {
-    //             cout << "You already selected this grade" << endl;
-    //             duplicate = true;
-    //         }
-    //     }
-    //     // dont allow duplicate grade selections and end loop once all grades are selected
-    //     if (!duplicate) {
-    //         selectedGrades.push_back(gradeString);
-    //     }
-    //     if (selectedGrades.size() < 6) {
-    //         cout << "\n";
-    //         cout << "Would you like to add another grade? (y/n) ";
-    //         getline(cin, addGrade);
-    //     } else {
-    //         additionalGrade = false;
-    //     }
-
-    //     // validate user input
-    //     while (addGrade != "n" && addGrade != "N" && addGrade != "y" && addGrade != "Y") {
-    //         cout << "Invalid choice." << endl;
-    //         cout << "Would you like to add another grade? (y/n) ";
-    //         getline(cin, addGrade);
-    //     }
-    //     if (addGrade == "n" || addGrade == "N") {
-    //         additionalGrade = false;
-    //     }
-    // }
-    // // print selection(s) for user feedback
-    // cout << "\n";
-    // cout << "Creating class lists for: " << endl;
-    // for (Grade g : selectedGrades) {
-    //     if (g == 0) {
-    //         cout << gradeToString(g) << endl;
-    //     } else {
-    //         cout << gradeToString(g) << " grade" << endl;
-    //     }
-    // }
 
     // make lists for selected grades
     // repeat sorting algorithm for each grade

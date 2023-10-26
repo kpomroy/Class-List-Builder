@@ -44,7 +44,9 @@
         // TODO: FORMAT TO PRINT ONE LINE AT A TIME
         // How to read one line at a time from txt file in PHP
         if ($grade == "Kindergarten" && file_exists($textFile0)) {
-            readfile($textFile0); // Display the contents of the text file
+            $myfile = fopen("kindergarten.txt", "r") or die("Unable to open file!");
+            echo fread($myfile . "\n",filesize("kindergarten.txt"));
+            fclose($myfile); // Display the contents of the text file
         } else if ($grade == "First" && file_exists($textFile1)) {
             readfile($textFile1); 
         } else if ($grade == "Second" && file_exists($textFile2)) {
