@@ -5,9 +5,10 @@
 #include <list>
 #include <vector>
 #include <algorithm>
-#include "Student.h"
-#include "Class.h"
-#include "Person.h"
+#include "Student.cpp"
+#include "Class.cpp"
+#include "Person.cpp"
+#include "Teacher.cpp"
 
 using namespace std;
 
@@ -188,41 +189,46 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     Teacher classOneTeacher = applicableClasses[0].getTeacher();
     Teacher classTwoTeacher = applicableClasses[1].getTeacher();
     outFile << "TEACHER: " << classOneTeacher << endl;
-    int maleCount1 = 0;
-    int femaleCount1 = 0;
+    int maleCount = 0;
+    int femaleCount = 0;
     for (Student s : class1) {
         outFile << s << endl;
         if (s.getSex() == 0) {
-            maleCount1++;
+            maleCount++;
         } else {
-            femaleCount1++;
+            femaleCount++;
         }
     }
 
+    // Pass these values to be used in the python script class.py
+    // executePythonScript("python class.py " + to_string(maleCount));
+    // executePythonScript("python class.py " + to_string(femaleCount));
+
     outFile << "\n";
-    outFile << "MALES: " << maleCount1 << endl;
-    outFile << "FEMALES: " << femaleCount1 << endl;
+    outFile << "MALES: " << maleCount << endl;
+    outFile << "FEMALES: " << femaleCount << endl;
     outFile << "\n";
     outFile << "\n";
-    int maleCount2 = 0;
-    int femaleCount2 = 0;
+    maleCount = 0;
+    femaleCount = 0;
     outFile << "TEACHER: " << classTwoTeacher << endl;
     for (Student s : class2) {
         outFile << s << endl;
         if (s.getSex() == 0) {
-            maleCount2++;
+            maleCount++;
         } else {
-            femaleCount2++;
+            femaleCount++;
         }
     }
 
-    outFile << "\n";
-    outFile << "MALES: " << maleCount2 << endl;
-    outFile << "FEMALES: " << femaleCount2 << endl;
-    outFile << "\n";
-
     // Pass these values to be used in the python script class.py
-    executePythonScript("python class.py " + to_string(maleCount1) + " " + to_string(femaleCount1) + " " +to_string(femaleCount2) + " " +to_string(femaleCount2));
+    // executePythonScript("python class.py " + to_string(maleCount));
+    // executePythonScript("python class.py " + to_string(femaleCount));
+
+    outFile << "\n";
+    outFile << "MALES: " << maleCount << endl;
+    outFile << "FEMALES: " << femaleCount << endl;
+    outFile << "\n";
 
     outFile.close();
 }
@@ -292,5 +298,6 @@ int main(int argc, char* argv[]) {
         assignClasses(fifthGrade, class1, class2);
         outputResults(intToGrade(5), class1, class2, classes, "fifthGrade.txt");
     }
+    //}
     return 0;
 }
