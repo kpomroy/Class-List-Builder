@@ -97,8 +97,9 @@
                 echo "<tr>";
             } 
         } 
-        else {
+        else if ($grade == "Fifth" && file_exists($textFile5)) {
             $lines = file('fifthGrade.txt');
+            
             
             foreach($lines as $line) {
                 echo "<tr>";
