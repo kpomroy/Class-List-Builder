@@ -1,16 +1,11 @@
 import sys
 import matplotlib.pyplot as plt
 
-#classOneMale = 2
-#classOneFemale = 3
-#classTwoFemale = 4
-#classTwoMale = 7
-
 # Extract the values from command-line arguments
 classOneMale, classOneFemale, classTwoMale, classTwoFemale = map(int, sys.argv[1:])
 
 # Create x and y values
-categories = ['Males in Class 1', 'Females in Class 1', 'Males in Class 2', 'Females in Class 2']
+categories = ['Males in Class 1  ', 'Females in Class 1  ', 'Males in Class 2  ', 'Females in Class 2  ']
 values = [classOneMale, classOneFemale, classTwoMale, classTwoFemale]
 
 # Set each bar to be a color
