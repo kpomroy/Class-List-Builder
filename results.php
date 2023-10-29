@@ -109,12 +109,6 @@
         }
         echo "</table>";
         
-        // Path to the PNG image of the graph
-        $imagePath = '"/M3OEP_plot.png"';
-        
-        // Output the HTML to display the image
-        echo '<img src="' . $imagePath . '" alt="My PNG Image">';
-        
         ?>
     </body>
 </html>
