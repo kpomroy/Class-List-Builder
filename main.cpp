@@ -146,25 +146,6 @@ void assignClasses(vector<Student> students, vector<Student> &class1, vector<Stu
     }
 }
 
-
-// Create a function to execute the python script
-void executePythonScript(const std::string& script) {
-    char buffer[128];
-    std::string result = "";
-    FILE* pipe = popen(script.c_str(), "r");
-    if (!pipe) {
-        std::cerr << "Failed to execute Python script" << std::endl;
-        cout << result << endl;
-    }
-
-    while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
-        result += buffer;
-    }
-
-    pclose(pipe);
-    cout << result << endl;
-}
-
 /*
  * Function to output class lists to a txt file for easy viewing by the user
  * txt file displays grade, student names, and the number of males and females in each class
@@ -200,10 +181,6 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
         }
     }
 
-    // Pass these values to be used in the python script class.py
-    // executePythonScript("python class.py " + to_string(maleCount));
-    // executePythonScript("python class.py " + to_string(femaleCount));
-
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
     outFile << "FEMALES: " << femaleCount << endl;
@@ -220,10 +197,6 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
             femaleCount++;
         }
     }
-
-    // Pass these values to be used in the python script class.py
-    // executePythonScript("python class.py " + to_string(maleCount));
-    // executePythonScript("python class.py " + to_string(femaleCount));
 
     outFile << "\n";
     outFile << "MALES: " << maleCount << endl;
@@ -269,11 +242,6 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    // make lists for selected grades
-    // repeat sorting algorithm for each grade
-    // for (Grade g : selectedGrades) {
-        // string gradeName = gradeToString(g);
-        // string gradeVector;
     vector<Student> class1;
     vector<Student> class2;
 
