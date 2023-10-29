@@ -23,14 +23,13 @@
   
         // Make command line call to execute main
         // Passing in grade and file strings
-        $pwd = shell_exec("pwd");
-        echo $pwd . "\n";
-        echo "g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile . "\n";
+        // DEBUGGING PRINTS
+        // $pwd = shell_exec("pwd");
+        // echo $pwd . "\n";
+        // echo "g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile . "\n";
 
-        echo "<p>starting command shell call</p>";
         shell_exec("mkdir testing");
         shell_exec("g++ -std=c++1y -o main.exe main.cpp;./main.exe " . $grade . " " . $studentFile . " " . $teacherFile);
-        echo "<p>ending command shell call</p>";
 
         // Print the txt file that was created with all of the data
         $textFile0 = "kindergarten.txt";
