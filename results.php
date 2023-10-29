@@ -39,9 +39,6 @@
         $textFile4 = "fourthGrade.txt";
         $textFile5 = "fifthGrade.txt";
 
-
-        // KINDERGARTEN IS FUNCTIONAL
-        // TODO: copy into the rest of the grades
         echo "<table>";
         if ($grade == "Kindergarten" && file_exists($textFile0)) {
             $lines = file('kindergarten.txt');
@@ -100,7 +97,15 @@
             } 
         } 
         else {
-            readfile($textFile5); 
+            $lines = file('fifthGrade.txt');
+            
+            foreach($lines as $line) {
+                echo "<tr>";
+                echo "<td>";
+                echo $line;
+                echo "</td>";
+                echo "<tr>";
+            } 
         }
         echo "</table>";
         ?>
