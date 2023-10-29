@@ -108,6 +108,8 @@
             } 
         }
         echo "</table>";
+
+        echo '<img src="M3OEP_plot.png" alt="Graph image"/>';
         
         ?>
     </body>
