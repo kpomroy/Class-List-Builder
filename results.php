@@ -110,7 +110,7 @@
         echo "</table>";
         
         // Path to the PNG image of the graph
-        $imagePath = '"C:\AdvProg\M3OEP-kpomroy-salamutu-ksaffers\M3OEP_plot.png"';
+        $imagePath = '"/M3OEP_plot.png"';
         
         // Output the HTML to display the image
         echo '<img src="' . $imagePath . '" alt="My PNG Image">';
