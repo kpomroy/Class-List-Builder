@@ -5,9 +5,9 @@
 #include <list>
 #include <vector>
 #include <algorithm>
-#include "Student.cpp"
-#include "Class.cpp"
-#include "Person.cpp"
+#include "Student.h"
+#include "Class.h"
+#include "Person.h"
 
 using namespace std;
 
@@ -199,10 +199,6 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
         }
     }
 
-    // Pass these values to be used in the python script class.py
-    // executePythonScript("python class.py " + to_string(maleCount));
-    // executePythonScript("python class.py " + to_string(femaleCount));
-
     outFile << "\n";
     outFile << "MALES: " << maleCount1 << endl;
     outFile << "FEMALES: " << femaleCount1 << endl;
@@ -226,7 +222,7 @@ void outputResults(Grade grade, vector<Student> &class1, vector<Student> &class2
     outFile << "\n";
 
     // Pass these values to be used in the python script class.py
-    executePythonScript("python class.py " + to_string(maleCount1) + to_string(femaleCount1) + to_string(femaleCount2) + to_string(femaleCount2));
+    executePythonScript("python class.py " + to_string(maleCount1) + " " + to_string(femaleCount1) + " " +to_string(femaleCount2) + " " +to_string(femaleCount2));
 
     outFile.close();
 }

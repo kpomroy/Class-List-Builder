@@ -1,6 +1,11 @@
 import sys
 import matplotlib.pyplot as plt
 
+#classOneMale = 2
+#classOneFemale = 3
+#classTwoFemale = 4
+#classTwoMale = 7
+
 # Extract the values from command-line arguments
 classOneMale, classOneFemale, classTwoMale, classTwoFemale = map(int, sys.argv[1:])
 

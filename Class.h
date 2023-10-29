@@ -8,7 +8,7 @@
 #include <vector>
 #include "Student.h"
 #include "Teacher.h"
-#include "Teacher.cpp"
+// #include "Teacher.cpp"
 using namespace std;
 
 /*
